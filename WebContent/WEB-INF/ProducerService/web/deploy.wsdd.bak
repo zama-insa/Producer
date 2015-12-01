@@ -1,0 +1,28 @@
+<!-- Use this file to deploy some handlers/chains and services      -->
+<!-- Two ways to do this:                                           -->
+<!--   java org.apache.axis.client.AdminClient deploy.wsdd          -->
+<!--      after the axis server is running                          -->
+<!-- or                                                             -->
+<!--   java org.apache.axis.utils.Admin client|server deploy.wsdd   -->
+<!--      from the same directory that the Axis engine runs         -->
+
+<deployment
+    xmlns="http://xml.apache.org/axis/wsdd/"
+    xmlns:java="http://xml.apache.org/axis/wsdd/providers/java">
+
+  <!-- Services from ProducerService WSDL service -->
+
+  <service name="Producer" provider="java:RPC" style="wrapped" use="literal">
+      <parameter name="wsdlTargetNamespace" value="http://web"/>
+      <parameter name="wsdlServiceElement" value="ProducerService"/>
+      <parameter name="schemaQualified" value="http://web"/>
+      <parameter name="wsdlServicePort" value="Producer"/>
+      <parameter name="className" value="web.ProducerSoapBindingImpl"/>
+      <parameter name="wsdlPortType" value="Producer"/>
+      <parameter name="typeMappingVersion" value="1.2"/>
+      <operation name="pingpong" qname="operNS:pingpong" xmlns:operNS="http://web" returnQName="retNS:pingpongReturn" xmlns:retNS="http://web" returnType="rtns:string" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+      </operation>
+      <parameter name="allowedMethods" value="pingpong"/>
+
+  </service>
+</deployment>

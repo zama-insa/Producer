@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://web" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="http://web" xmlns:intf="http://web" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<!--WSDL created by Apache Axis version: 1.4
+Built on Apr 22, 2006 (06:55:48 PDT)-->
+ <wsdl:types>
+  <schema elementFormDefault="qualified" targetNamespace="http://web" xmlns="http://www.w3.org/2001/XMLSchema">
+   <element name="pingpong">
+    <complexType/>
+   </element>
+   <element name="pingpongResponse">
+    <complexType>
+     <sequence>
+      <element name="pingpongReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+  </schema>
+ </wsdl:types>
+
+   <wsdl:message name="pingpongResponse">
+
+      <wsdl:part element="impl:pingpongResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="pingpongRequest">
+
+      <wsdl:part element="impl:pingpong" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:portType name="Producer">
+
+      <wsdl:operation name="pingpong">
+
+         <wsdl:input message="impl:pingpongRequest" name="pingpongRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:pingpongResponse" name="pingpongResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:portType>
+
+   <wsdl:binding name="ProducerSoapBinding" type="impl:Producer">
+
+      <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+
+      <wsdl:operation name="pingpong">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="pingpongRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="pingpongResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:binding>
+
+   <wsdl:service name="ProducerService">
+
+      <wsdl:port binding="impl:ProducerSoapBinding" name="Producer">
+
+         <wsdlsoap:address location="http://localhost:8080/Producer/services/Producer"/>
+
+      </wsdl:port>
+
+   </wsdl:service>
+
+</wsdl:definitions>
