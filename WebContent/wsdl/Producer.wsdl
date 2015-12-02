@@ -14,12 +14,42 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
      </sequence>
     </complexType>
    </element>
+   <element name="changeProcess">
+    <complexType>
+     <sequence>
+      <element name="process" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="changeProcessResponse">
+    <complexType>
+     <sequence>
+      <element name="changeProcessReturn" type="xsd:boolean"/>
+     </sequence>
+    </complexType>
+   </element>
   </schema>
  </wsdl:types>
 
    <wsdl:message name="pingpongResponse">
 
       <wsdl:part element="impl:pingpongResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="changeProcessRequest">
+
+      <wsdl:part element="impl:changeProcess" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="changeProcessResponse">
+
+      <wsdl:part element="impl:changeProcessResponse" name="parameters">
 
       </wsdl:part>
 
@@ -47,6 +77,18 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
 
       </wsdl:operation>
 
+      <wsdl:operation name="changeProcess">
+
+         <wsdl:input message="impl:changeProcessRequest" name="changeProcessRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:changeProcessResponse" name="changeProcessResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
    </wsdl:portType>
 
    <wsdl:binding name="ProducerSoapBinding" type="impl:Producer">
@@ -64,6 +106,24 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
          </wsdl:input>
 
          <wsdl:output name="pingpongResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="changeProcess">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="changeProcessRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="changeProcessResponse">
 
             <wsdlsoap:body use="literal"/>
 

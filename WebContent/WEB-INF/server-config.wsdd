@@ -30,7 +30,10 @@
  </ns1:service>
  <ns1:service name="Producer" provider="java:RPC" style="wrapped" use="literal">
   <ns2:operation name="pingpong" qname="ns1:pingpong" returnQName="ns1:pingpongReturn" returnType="xsd:string" soapAction="" xmlns:ns1="http://web" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:ns2="http://xml.apache.org/axis/wsdd/"/>
-  <ns1:parameter name="allowedMethods" value="pingpong"/>
+  <ns1:operation name="changeProcess" qname="ns2:changeProcess" returnQName="ns2:changeProcessReturn" returnType="xsd:boolean" soapAction="" xmlns:ns2="http://web" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+   <ns1:parameter qname="ns2:process" type="xsd:int"/>
+  </ns1:operation>
+  <ns1:parameter name="allowedMethods" value="pingpong changeProcess"/>
   <ns1:parameter name="typeMappingVersion" value="1.2"/>
   <ns1:parameter name="wsdlPortType" value="Producer"/>
   <ns1:parameter name="className" value="web.Producer"/>

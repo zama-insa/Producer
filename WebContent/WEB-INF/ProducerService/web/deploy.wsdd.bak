@@ -22,7 +22,10 @@
       <parameter name="typeMappingVersion" value="1.2"/>
       <operation name="pingpong" qname="operNS:pingpong" xmlns:operNS="http://web" returnQName="retNS:pingpongReturn" xmlns:retNS="http://web" returnType="rtns:string" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
       </operation>
-      <parameter name="allowedMethods" value="pingpong"/>
+      <operation name="changeProcess" qname="operNS:changeProcess" xmlns:operNS="http://web" returnQName="retNS:changeProcessReturn" xmlns:retNS="http://web" returnType="rtns:boolean" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+        <parameter qname="pns:process" xmlns:pns="http://web" type="tns:int" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <parameter name="allowedMethods" value="pingpong changeProcess"/>
 
   </service>
 </deployment>
