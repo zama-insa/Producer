@@ -7,8 +7,8 @@
   <ns1:parameter name="dotNetSoapEncFix" value="true"/>
   <ns1:parameter name="enableNamespacePrefixOptimization" value="false"/>
   <ns1:parameter name="sendXMLDeclaration" value="true"/>
-  <ns1:parameter name="sendXsiTypes" value="true"/>
   <ns1:parameter name="attachments.implementation" value="org.apache.axis.attachments.AttachmentsImpl"/>
+  <ns1:parameter name="sendXsiTypes" value="true"/>
   <ns1:requestFlow>
    <ns1:handler type="java:org.apache.axis.handlers.JWSHandler">
     <ns1:parameter name="scope" value="session"/>
@@ -20,8 +20,8 @@
   </ns1:requestFlow>
  </ns1:globalConfiguration>
  <ns1:handler name="URLMapper" type="java:org.apache.axis.handlers.http.URLMapper"/>
- <ns1:handler name="Authenticate" type="java:org.apache.axis.handlers.SimpleAuthenticationHandler"/>
  <ns1:handler name="LocalResponder" type="java:org.apache.axis.transport.local.LocalResponder"/>
+ <ns1:handler name="Authenticate" type="java:org.apache.axis.handlers.SimpleAuthenticationHandler"/>
  <ns1:service name="AdminService" provider="java:MSG">
   <ns1:parameter name="allowedMethods" value="AdminService"/>
   <ns1:parameter name="enableRemoteAdmin" value="false"/>
@@ -29,11 +29,10 @@
   <ns1:namespace>http://xml.apache.org/axis/wsdd/</ns1:namespace>
  </ns1:service>
  <ns1:service name="Producer" provider="java:RPC" style="wrapped" use="literal">
-  <ns2:operation name="pingpong" qname="ns1:pingpong" returnQName="ns1:pingpongReturn" returnType="xsd:string" soapAction="" xmlns:ns1="http://web" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:ns2="http://xml.apache.org/axis/wsdd/"/>
-  <ns1:operation name="changeProcess" qname="ns2:changeProcess" returnQName="ns2:changeProcessReturn" returnType="xsd:boolean" soapAction="" xmlns:ns2="http://web" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-   <ns1:parameter qname="ns2:process" type="xsd:int"/>
-  </ns1:operation>
-  <ns1:parameter name="allowedMethods" value="pingpong changeProcess"/>
+  <ns2:operation name="pingpong" qname="ns1:pingpong" returnQName="ns1:pingpongReturn" returnType="xsd:string" soapAction="" xmlns:ns1="http://web" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:ns2="http://xml.apache.org/axis/wsdd/">
+   <ns2:parameter qname="ns1:processTime" type="xsd:int"/>
+  </ns2:operation>
+  <ns1:parameter name="allowedMethods" value="pingpong"/>
   <ns1:parameter name="typeMappingVersion" value="1.2"/>
   <ns1:parameter name="wsdlPortType" value="Producer"/>
   <ns1:parameter name="className" value="web.Producer"/>

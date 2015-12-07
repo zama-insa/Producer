@@ -11,11 +11,9 @@
       <parameter name="wsdlPortType" value="Producer"/>
       <parameter name="typeMappingVersion" value="1.2"/>
       <operation xmlns:operNS="http://web" xmlns:retNS="http://web" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="pingpong" qname="operNS:pingpong" returnQName="retNS:pingpongReturn" returnType="rtns:string" soapAction="">
+        <parameter xmlns:pns="http://web" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:processTime" type="tns:int"/>
       </operation>
-      <operation xmlns:operNS="http://web" xmlns:retNS="http://web" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="changeProcess" qname="operNS:changeProcess" returnQName="retNS:changeProcessReturn" returnType="rtns:boolean" soapAction="">
-        <parameter xmlns:pns="http://web" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:process" type="tns:int"/>
-      </operation>
-      <parameter name="allowedMethods" value="pingpong changeProcess"/>
+      <parameter name="allowedMethods" value="pingpong"/>
 
   </service>
 </deployment>
