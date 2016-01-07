@@ -23,11 +23,11 @@ public class Producer {
 	 * WebMethod used to ping this producer
 	 * @return "pong"
 	 */
-	@WebMethod(operationName="pingpong")
+	@WebMethod(operationName="pingpong") 
 	public String pingpong(@WebParam(name ="processTime")int processTime,@WebParam(name="mot") String mot) {
 		
 			
-			
+		//Wait the preocessTime
 		try {
 			Thread.sleep(processTime);
 		} catch (InterruptedException e) {
