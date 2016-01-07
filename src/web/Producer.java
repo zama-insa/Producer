@@ -24,7 +24,7 @@ public class Producer {
 	 * @return "pong"
 	 */
 	@WebMethod(operationName="pingpong")
-	public String pingpong(@WebParam(name ="processTime")int processTime) {
+	public String pingpong(@WebParam(name ="processTime")int processTime,@WebParam(name="mot") String mot) {
 		
 			
 			
